@@ -11,16 +11,20 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
 	"github.com/Masterminds/squirrel"
-	"github.com/jmoiron/sqlx")
+	"github.com/jmoiron/sqlx"
+)
+
 var (
 	db *sqlx.DB
 	QB = squirrel.StatementBuilder.PlaceholderFormat(squirrel.Dollar)
-	
 )
+
 func SetDB(database *sqlx.DB) {
 	db = database
 }
+
 var (
 	Domain = os.Getenv("DOMAIN")
 
@@ -34,6 +38,7 @@ var (
 		fmt.Sprintf("CASE WHEN NULLIF(img, '') IS NOT NULL THEN FORMAT('%s/%%s', img) ELSE NULL END AS img", Domain),
 	}
 )
+
 func IndexUserHandler(w http.ResponseWriter, r *http.Request) {
 	var users []models.User
 

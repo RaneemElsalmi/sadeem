@@ -3,9 +3,10 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"strings"
-	"test/controllers/utils/models"
 	"test/controllers/utils"
+	"test/controllers/utils/models"
+	"strings"
+
 	"github.com/google/uuid"
 )
 

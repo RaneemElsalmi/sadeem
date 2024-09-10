@@ -23,6 +23,7 @@ var (
 )
 
 func IndexvendorHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("vendor")
 	var vendors []models.Vendor
 
 	query, args, err := QB.Select(strings.Join(vendor_columns, ", ")).
